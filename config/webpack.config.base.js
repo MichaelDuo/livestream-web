@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const getClientEnvironment = require('./env');
 const env = getClientEnvironment();
+const paths = require('./paths');
 
 function resolve(p) {
 	return path.resolve(process.cwd(), p);
@@ -12,6 +13,7 @@ module.exports = (options) => ({
 	mode: options.mode,
 	entry: options.entry,
 	resolve: {
+		modules: ['node_modules', paths.appSrc],
 		extensions: ['.js', '.jsx', '.ts', '.tsx'],
 	},
 	output: Object.assign(

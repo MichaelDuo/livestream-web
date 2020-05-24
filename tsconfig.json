@@ -10,7 +10,12 @@
 		"lib": ["dom", "es2017"],
 		"strict": true,
 		"allowSyntheticDefaultImports": true,
-		"forceConsistentCasingInFileNames": true
+		"forceConsistentCasingInFileNames": true,
+		"baseUrl": ".",
+		"paths": {
+			"*": ["src/*"],
+			"@tests/*": ["tests/*"]
+		}
 	},
 	"exclude": ["node_modules", "dist", "public", "config"]
 }
