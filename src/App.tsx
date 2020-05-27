@@ -3,15 +3,17 @@ import MainPage from './pages/MainPage';
 import HLSPage from './pages/HLSPage';
 import DASHPage from './pages/DASHPage';
 import RTMPPage from './pages/RTMPPage';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import NavBar from 'components/NavBar';
 import Page from 'components/Page';
+import {ConnectedRouter} from 'connected-react-router';
+import {history} from 'store';
 
 const App = (): JSX.Element => (
 	<div className="app">
-		<NavBar />
-		<Page>
-			<Router>
+		<ConnectedRouter history={history}>
+			<NavBar />
+			<Page>
 				<Switch>
 					<Route path="/hls">
 						<HLSPage />
@@ -26,8 +28,8 @@ const App = (): JSX.Element => (
 						<MainPage />
 					</Route>
 				</Switch>
-			</Router>
-		</Page>
+			</Page>
+		</ConnectedRouter>
 	</div>
 );
 

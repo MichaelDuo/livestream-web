@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 function NavBar(): JSX.Element {
 	return (
@@ -6,13 +7,13 @@ function NavBar(): JSX.Element {
 			<div className="uk-navbar-left">
 				<ul className="uk-navbar-nav">
 					<li className="uk-active">
-						<a href="/">Video Player</a>
+						<Link to="/">Video Player</Link>
 					</li>
 					<li>
-						<a href="/hls">HLS Video</a>
+						<Link to="/hls">HLS Video</Link>
 					</li>
 					<li>
-						<a href="/rtmp">RTMP</a>
+						<Link to="/rtmp">RTMP</Link>
 					</li>
 				</ul>
 			</div>

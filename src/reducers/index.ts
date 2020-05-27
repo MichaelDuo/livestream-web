@@ -10,12 +10,10 @@ const reducers = {
 export default (
 	history: History
 ): Reducer<
-	StateFromReducersMapObject<
-		typeof reducers & {history: Reducer<RouterState>}
-	>
+	StateFromReducersMapObject<typeof reducers & {router: Reducer<RouterState>}>
 > => {
 	const rootReducer = combineReducers({
-		...{history: connectRouter(history)},
+		...{router: connectRouter(history)},
 		...reducers,
 	});
 	return rootReducer;

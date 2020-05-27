@@ -9,5 +9,4 @@ const store = createStore(
 	composeEnhancer(applyMiddleware(routerMiddleware(history)))
 );
 export type RootState = ReturnType<ReturnType<typeof rootReducer>>;
-
 export default store;
