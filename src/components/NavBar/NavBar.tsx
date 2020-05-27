@@ -6,7 +6,13 @@ function NavBar(): JSX.Element {
 			<div className="uk-navbar-left">
 				<ul className="uk-navbar-nav">
 					<li className="uk-active">
-						<a href="">Video Player</a>
+						<a href="/">Video Player</a>
+					</li>
+					<li>
+						<a href="/hls">HLS Video</a>
+					</li>
+					<li>
+						<a href="/rtmp">RTMP</a>
 					</li>
 				</ul>
 			</div>

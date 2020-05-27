@@ -5,7 +5,4 @@ export interface Action {
 	payload: any;
 }
 
-// Reducer State
-export interface AppState {
-	count: number;
-}
+export type AppState = any;

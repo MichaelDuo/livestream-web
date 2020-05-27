@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import videojs, {VideoJsPlayerOptions} from 'video.js';
 import 'video.js/dist/video-js.css';
-
+import './styles.scss';
 interface Props {
 	mp4?: string;
 	webm?: string;
@@ -23,10 +23,11 @@ function Video(props: Props): JSX.Element {
 				type: 'video/mp4',
 			},
 		];
-		const p = videojs(videoNode, options, function onPlayerReady() {
-			console.log('onPlayerReady');
-			(window as any).player = p;
+		const p = videojs(videoNode, options);
+		p.on('error', function () {
+			console.log(p.error());
 		});
+
 		setPlayer(p);
 		return (): void => {
 			if (player) player.dispose();
@@ -34,12 +35,14 @@ function Video(props: Props): JSX.Element {
 	}, [videoNode]);
 
 	return (
-		<div data-vjs-player>
-			<video
-				width="600"
-				ref={(node): void => setVideoNode(node)}
-				className="video-js"
-			></video>
+		<div className="component-video">
+			<div data-vjs-player>
+				<video
+					className="video-js"
+					width="600"
+					ref={(node: any): void => setVideoNode(node)}
+				></video>
+			</div>
 		</div>
 	);
 }

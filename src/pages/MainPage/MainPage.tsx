@@ -8,7 +8,8 @@ interface Props {
 	decrement: () => void;
 }
 
-const mp4 = 'http://localhost:8085/Bombay%20Beach%20w%20westworld.mov';
+// const mp4 = 'http://localhost:8085/Bombay%20Beach%20w%20westworld.mp4';
+const mp4 = 'tmp/Bombay%20Beach%20w%20westworld.mp4';
 function MainPage(props: Props): JSX.Element {
 	return (
 		<div id="MainPage" className="uk-flex uk-flex-center">

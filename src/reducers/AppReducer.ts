@@ -1,11 +1,10 @@
-import {AppState, Action} from 'types';
 import {APP_INCREMENT, APP_DECREMENT} from 'actions';
 
-const initialState: AppState = {
+const initialState = {
 	count: 1,
 };
 
-function AppReducer(state = initialState, action: Action): AppState {
+function AppReducer(state = initialState, action: Action): typeof initialState {
 	switch (action.type) {
 		case APP_INCREMENT:
 			return {...state, ...{count: state.count + 1}};
