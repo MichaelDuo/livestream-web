@@ -1,4 +1,4 @@
-import HLSVideo from './HLSVideo';
+import HLSVideo from './DashVideo';
 import {connect} from 'react-redux';
 
 export default connect((state: RootState) => {

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import DashVideo from 'components/DashVideo';
 
 interface Props {
 	count: number;
@@ -9,9 +10,7 @@ interface Props {
 function SecondPage(props: Props): JSX.Element {
 	return (
 		<div>
-			Second Page, Count is: {props.count}
-			<button onClick={(): void => props.increment()}>Increment</button>
-			<button onClick={(): void => props.decrement()}>Decrement</button>
+			<DashVideo />
 		</div>
 	);
 }

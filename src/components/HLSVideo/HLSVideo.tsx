@@ -1,9 +1,28 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import Hls from 'hls.js';
 
 interface Props {}
 
 function HLSVideo(props: Props): JSX.Element {
-	return <div>HLSVideo</div>;
+	const [videoNode, setVideoNode] = useState<HTMLVideoElement | null>(null);
+	// const [player, setPlayer] = useState<videojs.Player | null>(null);
+	useEffect(() => {
+		if (!videoNode) return;
+		// const videoSrc = 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8';
+		const videoSrc = '/tmp/output/output.m3u8';
+		const hls = new Hls();
+		hls.loadSource(videoSrc);
+		hls.attachMedia(videoNode);
+	}, [videoNode]);
+	return (
+		<video
+			controls
+			autoPlay={false}
+			ref={(node: any): void => setVideoNode(node)}
+		>
+			HLSVideo 123
+		</video>
+	);
 }
 
 export default HLSVideo;

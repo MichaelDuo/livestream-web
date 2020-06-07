@@ -12,6 +12,7 @@ const options: VideoJsPlayerOptions = {
 	controls: true,
 	sources: [],
 };
+
 function Video(props: Props): JSX.Element {
 	const [videoNode, setVideoNode] = useState<HTMLVideoElement | null>(null);
 	const [player, setPlayer] = useState<videojs.Player | null>(null);
@@ -25,7 +26,7 @@ function Video(props: Props): JSX.Element {
 		];
 		const p = videojs(videoNode, options);
 		p.on('error', function () {
-			console.log(p.error());
+			console.error(p.error());
 		});
 
 		setPlayer(p);
@@ -38,8 +39,9 @@ function Video(props: Props): JSX.Element {
 		<div className="component-video">
 			<div data-vjs-player>
 				<video
+					controls
 					className="video-js"
-					width="600"
+					width="800"
 					ref={(node: any): void => setVideoNode(node)}
 				></video>
 			</div>

@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import MainPage from './SecondPage';
+import HLSPage from './HLSPage';
 import {RootState} from 'types';
 import actions from 'actions';
 
@@ -11,4 +11,4 @@ export default connect(
 		increment: actions.App.increment,
 		decrement: actions.App.decrement,
 	}
-)(MainPage);
+)(HLSPage);

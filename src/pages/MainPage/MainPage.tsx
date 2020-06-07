@@ -9,7 +9,7 @@ interface Props {
 }
 
 // const mp4 = 'http://localhost:8085/Bombay%20Beach%20w%20westworld.mp4';
-const mp4 = 'tmp/Bombay%20Beach%20w%20westworld.mp4';
+const mp4 = 'tmp/video1.mp4';
 function MainPage(props: Props): JSX.Element {
 	return (
 		<div id="MainPage" className="uk-flex uk-flex-center">
