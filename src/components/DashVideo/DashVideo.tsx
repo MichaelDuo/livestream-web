@@ -4,7 +4,6 @@ import 'utils/controlbar/controlbar.scss';
 const LowestBitrateRule = require('utils/abr/LowestBitrateRule').default;
 const CustomBolaRule = require('utils/abr/CustomBolaRule').default;
 
-const dashjs = (window as any).dashjs;
 interface Props {
 	listener: (e: any) => void;
 }
