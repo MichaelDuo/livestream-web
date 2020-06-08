@@ -8,8 +8,8 @@ interface Props {
 
 const customABR = false;
 
-// const url = '/tmp/test/output/output.mpd';
-const url = 'https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd';
+const url = '/tmp/dash-movie/movie.mpd';
+// const url = 'https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd';
 
 const config: MediaPlayerSettingClass = {
 	streaming: {
@@ -17,7 +17,7 @@ const config: MediaPlayerSettingClass = {
 		jumpGaps: true,
 		abr: {
 			// ABRStrategy: 'abrDynamic', // 'abrBola',
-			ABRStrategy: 'abrBola',
+			// ABRStrategy: 'abrBola',
 			autoSwitchBitrate: {video: true},
 		},
 		scheduleWhilePaused: false,
@@ -91,6 +91,7 @@ function DashVideo(props: Props): JSX.Element {
 		});
 
 		if (customABR) {
+			let disable = false;
 			player.on(dashjs.MediaPlayer.events.BUFFER_EMPTY, () => {
 				player?.updateSettings({
 					streaming: {
@@ -99,18 +100,24 @@ function DashVideo(props: Props): JSX.Element {
 						},
 					},
 				});
+				disable = true;
 				player?.setQualityFor('video', 0);
 				player?.setQualityFor('audio', 0);
 			});
+
 			player.on(dashjs.MediaPlayer.events.BUFFER_LOADED, () => {
 				setTimeout(() => {
-					player?.updateSettings({
-						streaming: {
-							abr: {
-								autoSwitchBitrate: {video: true},
+					if (disable) {
+						console.log('update settings');
+						player?.updateSettings({
+							streaming: {
+								abr: {
+									autoSwitchBitrate: {video: true},
+								},
 							},
-						},
-					});
+						});
+						disable = false;
+					}
 				}, 10000);
 			});
 		}

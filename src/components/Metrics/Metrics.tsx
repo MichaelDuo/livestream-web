@@ -59,11 +59,6 @@ const scales = {
 			type: 'linear',
 			position: 'right',
 		},
-		{
-			id: 'C',
-			type: 'linear',
-			position: 'right',
-		},
 	],
 };
 
@@ -73,7 +68,7 @@ function Metrics(props: Props): JSX.Element {
 		<div>
 			<h3>
 				Current Bitrate:{' '}
-				{points.length && points[points.length - 1].bitrate}
+				{points.length && points[points.length - 1].bitrate}kbs
 			</h3>
 			<Line data={formatPoints(points)} options={{scales}} height={80} />
 		</div>
