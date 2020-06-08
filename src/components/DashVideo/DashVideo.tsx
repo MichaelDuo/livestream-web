@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import dashjs, {MediaPlayerClass, MediaPlayerSettingClass} from 'dashjs';
 import 'utils/controlbar/controlbar.scss';
-const LowestBitrateRule = require('utils/abr/LowestBitrateRule').default;
-const CustomBolaRule = require('utils/abr/CustomBolaRule').default;
 
 interface Props {
 	listener: (e: any) => void;
@@ -91,28 +89,31 @@ function DashVideo(props: Props): JSX.Element {
 		player.on(dashjs.MediaPlayer.events.PLAYBACK_PAUSED, () => {
 			stopRecording();
 		});
-		player.on(dashjs.MediaPlayer.events.BUFFER_EMPTY, () => {
-			player?.updateSettings({
-				streaming: {
-					abr: {
-						autoSwitchBitrate: {video: false},
-					},
-				},
-			});
-			player?.setQualityFor('video', 0);
-			player?.setQualityFor('audio', 0);
-		});
-		player.on(dashjs.MediaPlayer.events.BUFFER_LOADED, () => {
-			setTimeout(() => {
+
+		if (customABR) {
+			player.on(dashjs.MediaPlayer.events.BUFFER_EMPTY, () => {
 				player?.updateSettings({
 					streaming: {
 						abr: {
-							autoSwitchBitrate: {video: true},
+							autoSwitchBitrate: {video: false},
 						},
 					},
 				});
-			}, 10000);
-		});
+				player?.setQualityFor('video', 0);
+				player?.setQualityFor('audio', 0);
+			});
+			player.on(dashjs.MediaPlayer.events.BUFFER_LOADED, () => {
+				setTimeout(() => {
+					player?.updateSettings({
+						streaming: {
+							abr: {
+								autoSwitchBitrate: {video: true},
+							},
+						},
+					});
+				}, 10000);
+			});
+		}
 	}, [videoNode]);
 
 	return (

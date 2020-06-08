@@ -7,14 +7,14 @@ interface Props {
 	decrement: () => void;
 }
 
-function SecondPage(props: Props): JSX.Element {
+function SecondPage(): JSX.Element {
 	return (
 		<div>
 			<h1
 				className="uk-heading-line uk-text-center"
 				style={{marginBottom: '30px'}}
 			>
-				<span>Team Cat's Kidney</span>
+				<span>{"Team Cat's Kidney"}</span>
 			</h1>
 			<div className="cat-wrapper">
 				<div className="cat">

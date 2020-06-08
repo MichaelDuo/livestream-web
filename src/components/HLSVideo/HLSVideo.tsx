@@ -3,7 +3,7 @@ import Hls from 'hls.js';
 
 interface Props {}
 
-function HLSVideo(props: Props): JSX.Element {
+function HLSVideo(): JSX.Element {
 	const [videoNode, setVideoNode] = useState<HTMLVideoElement | null>(null);
 	// const [player, setPlayer] = useState<videojs.Player | null>(null);
 	useEffect(() => {
