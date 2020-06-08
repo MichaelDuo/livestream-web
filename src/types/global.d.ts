@@ -1,4 +1,4 @@
-import {Action as ReduxAction} from 'redux';
+import {AnyAction as ReduxAction} from 'redux';
 import {RootState as rootState} from 'store';
 
 declare global {

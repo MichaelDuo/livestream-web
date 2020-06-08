@@ -1,8 +1,8 @@
 import * as React from 'react';
-import MainPage from './pages/MainPage';
+import VideoJSPage from './pages/VideoJSPage';
 import HLSPage from './pages/HLSPage';
 import DASHPage from './pages/DASHPage';
-import RTMPPage from './pages/RTMPPage';
+import MainPage from './pages/MainPage';
 import {Switch, Route} from 'react-router-dom';
 import NavBar from 'components/NavBar';
 import Page from 'components/Page';
@@ -21,8 +21,8 @@ const App = (): JSX.Element => (
 					<Route path="/dash">
 						<DASHPage />
 					</Route>
-					<Route path="/rtmp">
-						<RTMPPage />
+					<Route path="/videojs">
+						<VideoJSPage />
 					</Route>
 					<Route path="/">
 						<MainPage />

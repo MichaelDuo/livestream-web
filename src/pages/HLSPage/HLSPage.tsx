@@ -9,8 +9,10 @@ interface Props {
 
 function SecondPage(props: Props): JSX.Element {
 	return (
-		<div>
-			<HLSVideo />
+		<div className="videoWrapper">
+			<div className="videoWrapper">
+				<HLSVideo />
+			</div>
 		</div>
 	);
 }

@@ -3,8 +3,12 @@ import {Link} from 'react-router-dom';
 
 const pages = [
 	{
-		title: 'Video Player',
+		title: "Team Cat's kindney",
 		url: '/',
+	},
+	{
+		title: 'Video.js Player',
+		url: '/videojs',
 	},
 	{
 		title: 'HLS Stream',
@@ -13,10 +17,6 @@ const pages = [
 	{
 		title: 'DASH Stream',
 		url: '/dash',
-	},
-	{
-		title: 'RTMP Stream',
-		url: '/rtmp',
 	},
 ];
 

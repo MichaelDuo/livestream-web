@@ -1,6 +1,5 @@
-import React, {useEffect} from 'react';
-import Video from 'components/Video';
-import './styles.scss';
+import React from 'react';
+import './style.scss';
 
 interface Props {
 	count: number;
@@ -8,16 +7,45 @@ interface Props {
 	decrement: () => void;
 }
 
-// const mp4 = 'http://localhost:8085/Bombay%20Beach%20w%20westworld.mp4';
-const mp4 = 'tmp/video1.mp4';
-function MainPage(props: Props): JSX.Element {
+function SecondPage(props: Props): JSX.Element {
 	return (
-		<div id="MainPage" className="uk-flex uk-flex-center">
-			<div>
-				<Video mp4={mp4} />
+		<div>
+			<h1
+				className="uk-heading-line uk-text-center"
+				style={{marginBottom: '30px'}}
+			>
+				<span>Team Cat's Kidney</span>
+			</h1>
+			<div className="cat-wrapper">
+				<div className="cat">
+					<div className="ear ear--left"></div>
+					<div className="ear ear--right"></div>
+					<div className="face">
+						<div className="eye eye--left">
+							<div className="eye-pupil"></div>
+						</div>
+						<div className="eye eye--right">
+							<div className="eye-pupil"></div>
+						</div>
+						<div className="muzzle"></div>
+					</div>
+				</div>
+			</div>
+			<div className="uk-margin">
+				<h1 className="uk-heading-line">
+					<span>Yuxi Dong</span>
+				</h1>
+
+				<h1 className="uk-heading-line uk-text-center">
+					<span>Jiahao Ge</span>
+				</h1>
+
+				<h1 className="uk-heading-line uk-text-right">
+					<span>Jie Lin</span>
+				</h1>
 			</div>
 		</div>
 	);
 }
 
-export default MainPage;
+export default SecondPage;

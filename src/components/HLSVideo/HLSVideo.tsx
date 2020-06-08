@@ -19,8 +19,9 @@ function HLSVideo(props: Props): JSX.Element {
 			controls
 			autoPlay={false}
 			ref={(node: any): void => setVideoNode(node)}
+			style={{width: '100%'}}
 		>
-			HLSVideo 123
+			HLSVideo
 		</video>
 	);
 }

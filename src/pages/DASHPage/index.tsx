@@ -1,14 +1,9 @@
 import {connect} from 'react-redux';
-import MainPage from './SecondPage';
+import DASHPage from './DASHPage';
 import {RootState} from 'types';
 import actions from 'actions';
 
-export default connect(
-	(state: RootState) => ({
-		count: state.App.count,
-	}),
-	{
-		increment: actions.App.increment,
-		decrement: actions.App.decrement,
-	}
-)(MainPage);
+export default connect((state: RootState) => ({}), {
+	clearMetrics: actions.Metrics.clear,
+	addPoint: actions.Metrics.addPoint,
+})(DASHPage);
